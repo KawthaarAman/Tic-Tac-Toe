@@ -27,7 +27,7 @@ const resetBtnEl = document.querySelector('#reset')
 
 function init() {
 
-    console.log(" Function called successfully")
+   // console.log(" Function called successfully")
 
     board = ['', '', '', '', '', '', '', '', '']
     turn = 'X'
