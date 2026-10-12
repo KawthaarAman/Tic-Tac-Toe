@@ -1,9 +1,17 @@
 /*-------------------------------- Constants --------------------------------*/
 
+
 const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
-    [6, 7, 8]
+    [6, 7, 8],
+
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+
+    [0, 4, 8],
+    [2, 4, 6]
 ]
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -27,7 +35,7 @@ const resetBtnEl = document.querySelector('#reset')
 
 function init() {
 
-   // console.log(" Function called successfully")
+    // console.log(" Function called successfully")
 
     board = ['', '', '', '', '', '', '', '', '']
     turn = 'X'
@@ -73,7 +81,7 @@ function handleClick(event) {
 
     const squareIndex = parseInt(event.target.id)
 
-    if (board[squareIndex] === 'X' || board[squareIndex] === '0' || winner === true) {
+    if (board[squareIndex] === 'X' || board[squareIndex] === 'O' || winner === true) {
         return
     }
 
@@ -81,7 +89,6 @@ function handleClick(event) {
     checkForWinner()
     checkForTie()
     switchPlayerTurn()
-
     render()
 
 }
@@ -108,6 +115,7 @@ function checkForWinner() {
             board[pos1] == board[pos3]
         ) {
             winner = true
+            return
 
         }
     }
